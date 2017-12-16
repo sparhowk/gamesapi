@@ -14,4 +14,4 @@ class GameSerializers(serializers.Serializer):
     
     def update(self, instance, validated_data):
         instance.name = validated_data.get('name', instance.name)
-        
+        instance.relase_date = validated_data('relase_date', instance.relase_date)
