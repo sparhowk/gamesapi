@@ -100,4 +100,4 @@ ENV/
 .pydevproject
 .project
 games/migrations/
-db.sqlite3
+
