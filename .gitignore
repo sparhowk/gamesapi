@@ -96,14 +96,6 @@ ENV/
 /site
 
 # mypy
-.mypy_cache/
-<<<<<<< HEAD
 .pydevproject
 .project
 games/migrations/
-
-=======
-games/migrations/
-.pydevproject
-.project
->>>>>>> master
