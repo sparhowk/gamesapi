@@ -98,8 +98,5 @@ ENV/
 # mypy
 .pydevproject
 .project
-games/migrations/
-secret_user.txt
-secret_key.txt
-secret_pass.txt
-secret_base.txt
+*/migrations/*
+secret*.txt
