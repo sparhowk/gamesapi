@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
 import os
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,8 +19,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
+with open('./secret_base.txt') as f:
+    BASE_NAME = f.read().strip()
+
+with open('./secret_user.txt') as f:
+    BASE_USER = f.read().strip()    
+
+with open('./secret_password.txt') as f:
+    BASE_PASSWORD = f.read().strip()
+   
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'io-0#)nu3c_l0q%+d1@i&+#@g6vdmo2gazasm=t)1j4_2czlnn'
+with open('./secret_key.txt') as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,8 +88,12 @@ WSGI_APPLICATION = 'gamesapi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': BASE_NAME,
+        'USER': BASE_USER,
+        'PASSWORD': BASE_PASSWORD,
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
